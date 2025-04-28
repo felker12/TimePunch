@@ -15,7 +15,6 @@ namespace TimePunch
             {
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    //exec dbo.spTimePunches_AddTimePunch 2,'2023-06-08 12:35:29.123','2023-06-08 20:35:29.123', null, null
                     string commandString = $"exec dbo.spTimePunches_AddTimePunch {2},{clockIn},{clockOut}, {breakStart}, {breakEnd}";
 
                     cmd.CommandText = commandString;
