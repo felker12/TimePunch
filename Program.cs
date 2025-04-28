@@ -4,12 +4,7 @@ namespace TimePunch
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        /// 
-
-        private static List<EmployeeTimePunches> employeeTimePunchesList = new List<EmployeeTimePunches>();
+        private static readonly List<EmployeeTimePunches> employeeTimePunchesList = [];
 
         [STAThread]
         static void Main()
@@ -18,15 +13,17 @@ namespace TimePunch
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            PrintAllEmployeeTimePunches();
+
             Application.Run(Form1.MainMenu);
         }
 
-        public static void addEmployeeTPList(EmployeeTimePunches empTP)
+        public static void AddEmployeeTPList(EmployeeTimePunches empTP)
         {
             employeeTimePunchesList.Add(empTP);
         }
 
-        public static void updateEmployeeClockIn(int id, string ciTime)
+        public static void UpdateEmployeeClockIn(int id, string ciTime)
         {
             for (int i = 0; i <  employeeTimePunchesList.Count; i++)
             {
@@ -38,7 +35,7 @@ namespace TimePunch
             }
         }
 
-        public static void updateEmployeeClockOut(int id, string coTime)
+        public static void UpdateEmployeeClockOut(int id, string coTime)
         {
             for (int i = 0; i < employeeTimePunchesList.Count; i++)
             {
@@ -50,7 +47,7 @@ namespace TimePunch
             }
         }
 
-        public static void updateEmployeeStartBreak(int id, string sbTime)
+        public static void UpdateEmployeeStartBreak(int id, string sbTime)
         {
             for (int i = 0; i < employeeTimePunchesList.Count; i++)
             {
@@ -62,7 +59,7 @@ namespace TimePunch
             }
         }
 
-        public static void updateEmployeeEndBreak(int id, string ebTime)
+        public static void UpdateEmployeeEndBreak(int id, string ebTime)
         {
             for (int i = 0; i < employeeTimePunchesList.Count; i++)
             {
@@ -74,14 +71,13 @@ namespace TimePunch
             }
         }
 
-
         public static List<EmployeeTimePunches> getEmployeeTPList()
         {
             return employeeTimePunchesList;
         }
         
         //checks if employee id is already in employee time punchs list
-        public static bool checkEmployeeTPList(int id)
+        public static bool CheckEmployeeTPList(int id)
         {
             foreach (EmployeeTimePunches etp in Program.getEmployeeTPList())
             {
@@ -90,10 +86,7 @@ namespace TimePunch
             return false;
         }
 
-
-        //TODO temp
-        /*
-        public static void printAllEmployeeTimePunches()
+        public static void PrintAllEmployeeTimePunches()
         {
             foreach (EmployeeTimePunches etp in Program.getEmployeeTPList())
             {
@@ -105,9 +98,5 @@ namespace TimePunch
                     $"break end = {etp.employeeBreakEnd}");
             }
         }
-        */
-
-
-
     }
 }

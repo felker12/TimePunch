@@ -37,7 +37,7 @@ namespace TimePunch
                 {
                     if (etp.employeeClockIn == string.Empty)
                     {
-                        Program.updateEmployeeClockIn(etp.employeeid, formattedDT);
+                        Program.UpdateEmployeeClockIn(etp.employeeid, formattedDT);
 
                         this.Close();
                         MessageBox.Show("You have successfully clocked in at " + formattedDT, "Clocked In");
@@ -62,7 +62,7 @@ namespace TimePunch
                 {
                     if (etp.employeeClockOut == string.Empty)
                     {
-                        Program.updateEmployeeClockOut(etp.employeeid, formattedDT);
+                        Program.UpdateEmployeeClockOut(etp.employeeid, formattedDT);
 
                         this.Close();
                         MessageBox.Show("You have successfully clocked out at " + formattedDT, "Clocked Out");
@@ -87,7 +87,7 @@ namespace TimePunch
                 {
                     if (etp.employeeBreakStart == string.Empty)
                     {
-                        Program.updateEmployeeStartBreak(etp.employeeid, formattedDT);
+                        Program.UpdateEmployeeStartBreak(etp.employeeid, formattedDT);
 
                         this.Close();
                         MessageBox.Show("You have successfully started break at " + formattedDT, "Break Started");
@@ -112,7 +112,7 @@ namespace TimePunch
                 {
                     if (etp.employeeBreakEnd== string.Empty)
                     {
-                        Program.updateEmployeeEndBreak(etp.employeeid, formattedDT);
+                        Program.UpdateEmployeeEndBreak(etp.employeeid, formattedDT);
 
                         this.Close();
                         MessageBox.Show("You have successfully ended break at " + formattedDT, "Break Ended");

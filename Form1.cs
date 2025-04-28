@@ -24,10 +24,7 @@ namespace TimePunch
         {
             get
             {
-                if (_mainMenu == null)
-                {
-                    _mainMenu = new Form1();
-                }
+                _mainMenu ??= new Form1();
                 return _mainMenu;
             }
         }
@@ -39,20 +36,20 @@ namespace TimePunch
                 int pass = int.Parse(EmployeePassTextBox.Text);
 
                 //validate id and pass exist in the DB
-                if (TimeClockDataLayer.isUser(id, pass))
+                if (TimeClockDataLayer.IsUser(id, pass))
                 {
                     EmployeeIDTextBox.Text = String.Empty;
                     EmployeePassTextBox.Text = String.Empty;
 
-                    EmployeeTimePunches employeeTP = new EmployeeTimePunches();
+                    EmployeeTimePunches employeeTP = new();
                     employeeTP.employeeid = id;
 
-                    if (Program.checkEmployeeTPList(id) == false)
+                    if (Program.CheckEmployeeTPList(id) == false)
                     {
-                        Program.addEmployeeTPList(employeeTP);
+                        Program.AddEmployeeTPList(employeeTP);
                     }
 
-                    TimeClockForm ClockIn = new TimeClockForm(id);
+                    TimeClockForm ClockIn = new(id);
                     ClockIn.Show();
                     this.Hide();
                 }
@@ -66,11 +63,5 @@ namespace TimePunch
                 MessageBox.Show("ID and Password must be numbers", "Invalid ID or Password");
             }
         }
-
-        protected void ShowForm()
-        {
-            _mainMenu.Show();
-        }
     }
-
 }
